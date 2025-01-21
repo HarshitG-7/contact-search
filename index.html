@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>My Contacts</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">My Contacts</h1>
+      <input type="text" id="filter-Input" placeholder="Seach for contacts" />
+      <ul id="names" class="collection with-header">
+        <li class="collection-header">
+          <h5>A</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">amhad</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">ash</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">atif</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">atish</a>
+        </li>
+
+        <li class="collection-header">
+          <h5>B</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">bob</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">baljit</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">bam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">binu</a>
+        </li>
+
+        <li class="collection-header">
+          <h5>C</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">cam</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">cade</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">casey</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">cisa</a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      let filterInput = document.getElementById("filter-Input");
+      filterInput.addEventListener("keyup", filterName);
+
+      function filterName() {
+        let filterValue = filterInput.value.toUpperCase();
+        let ul = document.getElementById("names");
+        let li = ul.querySelectorAll("li.collection-item");
+
+        for (let i = 0; i < li.length; i++) {
+          let a = li[i].getElementsByTagName("a")[0];
+          if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
